@@ -1,0 +1,42 @@
+# Books used by the RAG lab. The PDFs themselves live OUTSIDE this repository, in
+# AI_TUTOR_GUIDED_BUILD/materials/textbooks/ (or the folder named by the RAG_LAB_BOOKS
+# environment variable). See materials/TEXTBOOK_REGISTER.md for the licence check.
+#
+# deployable: true  -> open licence; may be quoted (with attribution) in the deployed tutor
+# deployable: false -> copyrighted; offline lab testing only (design decision D17)
+
+books:
+  - id: olivier
+    file: BA123-Business-Math-A-Step-by-Step-Handbook-1.pdf
+    title: "Business Math: A Step-by-Step Handbook"
+    author: J. Olivier (Lyryx Open Texts)
+    licence: CC BY-NC-SA 4.0
+    deployable: true
+
+  - id: godwin
+    file: quantecon.pdf
+    title: Quantitative Methods in Economics
+    author: R. T. Godwin (2022)
+    licence: CC BY-NC-SA 4.0
+    deployable: true
+
+  - id: anderson
+    file: david-r.-anderson-dennis-j.-sweeney-thomas-a.-williams-jeffrey-d.-camm-james-james-j.-cochran-quantitative-methods-for-business-cengage-learning-2012.pdf
+    title: Quantitative Methods for Business (12th ed.)
+    author: Anderson, Sweeney, Williams, Camm, Cochran, Fry, Ohlmann (Cengage)
+    licence: all rights reserved
+    deployable: false
+
+  - id: francis
+    file: "Business Mathematics and Statistics- Sixth Edition_Introduction to.pdf"
+    title: Business Mathematics and Statistics (6th ed., partial)
+    author: A. Francis (Thomson Learning, 2004)
+    licence: all rights reserved
+    deployable: false
+
+  - id: targett
+    file: Quantitative-Methods.pdf
+    title: Quantitative Methods (Module 1 excerpt)
+    author: D. Targett (Edinburgh Business School)
+    licence: all rights reserved
+    deployable: false

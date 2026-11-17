@@ -1,0 +1,169 @@
+# Learning outcome LO-03: calculate and interpret simple and compound interest.
+# STATUS: DRAFT, synthetic illustration. Not approved curriculum content.
+
+metadata:
+  schema_version: "0.2"
+  warning: "Synthetic draft content - not approved curriculum"
+
+items:
+  - item_id: INT-001
+    item_version: "1.1"
+    course_id: QM-UG-DRAFT
+    outcome_id: LO-03
+    skill: Financial mathematics
+    subskill: Compound interest
+    difficulty: Introductory
+    question_type: numeric_with_reasoning
+    stem: "An amount of 2,000 dalasis earns 5 percent compound interest per year for two years. Find the final amount and explain why the interest calculation changes after the first year."
+    answer_specification:
+      canonical_expression: "2205"
+      acceptable_forms: ["2205", "2205.00"]
+      units: GMD
+      absolute_tolerance: 0.01
+      rounding_rule: "two decimal places permitted"
+    calculator_policy: scientific
+    misconception_ids: [MIS-003, MIS-004]
+    scaffold_sequence:
+      self_explanation: "What happens to the balance at the end of the first year, before the second year's interest is worked out?"
+      conceptual_cue: "With compound interest, each year's interest is calculated on the updated balance, not the original amount."
+      strategic_hint: "Treat the two years as two growth steps, or use A = P(1 + r)^n with r as a decimal."
+      step_hint: "First find the balance at the end of year one."
+      analogous_example_id: INT-ANA-001
+    checkpoints:
+      - label: "the balance after one year"
+        value: "2100"
+    common_wrong_answers:
+      - value: "2200"
+        misconception_id: MIS-003
+        note: "Used simple interest: interest on the original 2000 in both years."
+    worked_solution:
+      - "After year 1: 2000 x 1.05 = 2100"
+      - "After year 2: 2100 x 1.05 = 2205"
+
+  - item_id: INT-002
+    item_version: "1.1"
+    course_id: QM-UG-DRAFT
+    outcome_id: LO-03
+    skill: Financial mathematics
+    subskill: Simple interest
+    difficulty: Introductory
+    question_type: numeric_with_reasoning
+    stem: "25,000 dalasis is invested at 8% simple interest per year for 3 years. How much interest is earned?"
+    answer_specification:
+      canonical_expression: "6000"
+      acceptable_forms: ["6000", "6,000"]
+      units: GMD
+      absolute_tolerance: 0.01
+      rounding_rule: exact
+    calculator_policy: basic
+    misconception_ids: [MIS-003]
+    scaffold_sequence:
+      self_explanation: "Does the interest each year depend on the original amount or on a growing balance here?"
+      conceptual_cue: "Simple interest is paid only on the original amount, the same every year."
+      strategic_hint: "Use I = P x r x t, with r written as a decimal."
+      step_hint: "Work out one year's interest first, then think about three years."
+      analogous_example_id: INT-ANA-002
+    checkpoints:
+      - label: "one year's interest"
+        value: "2000"
+    common_wrong_answers:
+      - value: "6492.8"
+        misconception_id: MIS-003
+        note: "Compounded the interest, although the question says simple interest."
+    worked_solution:
+      - "One year: 25000 x 0.08 = 2000"
+      - "Three years: 2000 x 3 = 6000"
+
+  - item_id: INT-003
+    item_version: "1.1"
+    course_id: QM-UG-DRAFT
+    outcome_id: LO-03
+    skill: Financial mathematics
+    subskill: Compound interest
+    difficulty: Intermediate
+    question_type: numeric_with_reasoning
+    stem: "10,000 dalasis is invested at 6% per year, compounded annually. What is the amount after 5 years? Give your answer to 2 decimal places."
+    answer_specification:
+      canonical_expression: "13382.26"
+      acceptable_forms: ["13382.26", "13,382.26"]
+      units: GMD
+      absolute_tolerance: 0.005
+      rounding_rule: "2 decimal places"
+    calculator_policy: scientific
+    misconception_ids: [MIS-003, MIS-004]
+    scaffold_sequence:
+      self_explanation: "How many times is interest added, and to what?"
+      conceptual_cue: "Compounding annually for several years multiplies the balance by the same growth factor each year."
+      strategic_hint: "Use A = P(1 + r)^n. Identify P, r (as a decimal) and n."
+      step_hint: "Work out the growth factor (1 + r) first, then raise it to the right power."
+      analogous_example_id: INT-ANA-001
+    checkpoints:
+      - label: "the balance after one year"
+        value: "10600"
+    common_wrong_answers:
+      - value: "13000"
+        misconception_id: MIS-003
+        note: "Used simple interest: 10000 x (1 + 0.06 x 5)."
+    worked_solution:
+      - "A = 10000 x 1.06^5"
+      - "1.06^5 = 1.3382255776"
+      - "A = 13382.26"
+
+  - item_id: INT-004
+    item_version: "1.0"
+    course_id: QM-UG-DRAFT
+    outcome_id: LO-03
+    skill: Financial mathematics
+    subskill: Simple versus compound interest
+    difficulty: Intermediate
+    question_type: numeric_with_reasoning
+    stem: "5,000 dalasis is invested for 2 years at 10% per year. How much MORE interest is earned with annual compound interest than with simple interest?"
+    answer_specification:
+      canonical_expression: "50"
+      acceptable_forms: ["50"]
+      units: GMD
+      absolute_tolerance: 0.01
+      rounding_rule: exact
+    calculator_policy: scientific
+    misconception_ids: [MIS-003]
+    transfer_flag: true
+    worked_solution:
+      - "Simple interest: 5000 x 0.10 x 2 = 1000"
+      - "Compound amount: 5000 x 1.1^2 = 6050, interest 1050"
+      - "Difference: 1050 - 1000 = 50"
+
+  # Analogous worked examples
+  - item_id: INT-ANA-001
+    item_version: "1.0"
+    course_id: QM-UG-DRAFT
+    outcome_id: LO-03
+    skill: Financial mathematics
+    subskill: Compound interest
+    difficulty: Introductory
+    question_type: worked_analogue
+    purpose: "Analogous worked example for INT-001 and INT-003"
+    must_not_be_assigned_as_active_pair: true
+    stem: "3,000 dalasis earns 10 percent compound interest per year for two years. Find the final amount."
+    worked_solution:
+      - "The yearly growth factor is 1 + 0.10 = 1.10."
+      - "After year 1 the balance is 3000 x 1.10 = 3300."
+      - "Year 2 interest is worked out on 3300, not 3000: 3300 x 1.10 = 3630."
+      - "Equivalently, A = 3000 x 1.10^2 = 3630."
+    return_instruction: "Now return to your question. What is your growth factor, and what is the balance after the first year?"
+
+  - item_id: INT-ANA-002
+    item_version: "1.0"
+    course_id: QM-UG-DRAFT
+    outcome_id: LO-03
+    skill: Financial mathematics
+    subskill: Simple interest
+    difficulty: Introductory
+    question_type: worked_analogue
+    purpose: "Analogous worked example for INT-002"
+    must_not_be_assigned_as_active_pair: true
+    stem: "10,000 dalasis is invested at 6% simple interest per year for 4 years. Find the interest."
+    worked_solution:
+      - "Write the rate as a decimal: 6% = 0.06."
+      - "One year's interest is 10000 x 0.06 = 600."
+      - "Simple interest is the same every year, so 4 years give 600 x 4 = 2400."
+    return_instruction: "Now go back to your question and find one year's interest in the same way."

@@ -1,0 +1,56 @@
+# Skill map for Quantitative Methods and Business Mathematics (higher education).
+# Broad skill -> list of sub-skills. The short ids (left side) are what
+# items.csv uses in its `skill` and `subskill` columns.
+# DRAFT: based on typical first-year university course outlines, for
+# prototyping only. To be adapted to the course outlines of partner
+# institutions in The Gambia. still to be reviewed.
+# Left out for now (easy to add later): matrices, linear programming,
+# time series, index numbers.
+
+level: higher_education
+subject: quantitative_methods
+
+skills:
+  equations_functions:
+    label: Equations and functions in business
+    subskills:
+      linear_equations: Linear equations and rearranging formulae
+      cost_revenue_profit: Cost, revenue, profit and break-even
+      market_equilibrium: Supply, demand and market equilibrium
+      quadratic_functions: Quadratic functions
+
+  financial_mathematics:
+    label: Financial mathematics
+    subskills:
+      simple_compound_interest: Simple and compound interest
+      annuities_loans: Annuities, savings plans and loans
+      investment_appraisal: Present value and net present value (NPV)
+      depreciation: Depreciation
+
+  calculus:
+    label: Calculus for business
+    subskills:
+      differentiation: Differentiation rules
+      marginal_analysis: Marginal cost, revenue and profit
+      optimisation: Maximum and minimum values
+
+  descriptive_statistics:
+    label: Descriptive statistics
+    subskills:
+      central_tendency: Mean, median and mode
+      dispersion: Range, variance and standard deviation
+      grouped_data: Grouped frequency data
+
+  probability_distributions:
+    label: Probability and distributions
+    subskills:
+      probability_rules: Probability rules
+      binomial: Binomial distribution
+      normal: Normal distribution
+
+  inference_regression:
+    label: Estimation, testing and regression
+    subskills:
+      confidence_intervals: Confidence intervals
+      hypothesis_testing: Hypothesis tests
+      correlation_regression: Correlation and regression

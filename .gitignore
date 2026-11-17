@@ -1,0 +1,26 @@
+# Virtual environment (installed packages) - never commit
+.venv/
+
+# Secrets - API keys go in environment variables or a local .env file
+.env
+
+# Interaction logs may hold participant data - never commit
+*.db
+logs/
+exports/
+
+# Python cache files
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Local vector store (rebuilt from data/knowledge)
+chroma/
+
+# Version 2 database (synthetic data) and research exports
+data_v2/
+exports_v2/
+
+# Textbooks and anything built from their text: never commit (design decisions D02, D17)
+*.pdf
+rag_lab/output/

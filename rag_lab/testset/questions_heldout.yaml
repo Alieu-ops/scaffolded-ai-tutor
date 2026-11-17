@@ -1,0 +1,109 @@
+# RAG lab HELD-OUT test set, version 0.1 (DRAFT, 13 Oct 2026)
+#
+# Purpose: check whether the improvements found on questions.yaml (the "development" set, used
+# for all tuning so far) also hold on NEW questions the system was never tuned on.
+# Rules: (1) use it only for confirmation runs, never to choose settings; (2) do not edit it
+# after seeing its results, or it stops being held out.
+#
+# All topics are DIFFERENT from the development set (new sections of both books).
+# Drafted with an AI assistant from each book's table of contents; every expected page range was checked
+# to contain the topic's key term in the extracted text. I still need to review them before final use.
+# Pages are PDF page numbers, as in questions.yaml.
+
+version: "0.1"
+status: draft
+books_indexed: [olivier, godwin]
+
+questions:
+  # direct (6)
+  - id: h-d01
+    type: direct
+    question: "How do you calculate the present value of an ordinary annuity?"
+    expected: [{book: olivier, pages: [487, 499], section: "11.3 Present Value of Annuities"}]
+  - id: h-d02
+    type: direct
+    question: "What is a perpetuity and how is its value calculated?"
+    expected: [{book: olivier, pages: [543, 549], section: "12.3 Perpetuities"}]
+  - id: h-d03
+    type: direct
+    question: "How do you calculate the net present value of a project?"
+    expected: [{book: olivier, pages: [677, 689], section: "15.1 Net Present Value"}]
+  - id: h-d04
+    type: direct
+    question: "What is the difference between a nominal rate and an effective interest rate?"
+    expected: [{book: olivier, pages: [399, 405], section: "9.6 Equivalent and Effective Interest Rates"}]
+  - id: h-d05
+    type: direct
+    question: "What are quartiles and percentiles?"
+    expected: [{book: godwin, pages: [52, 54], section: "5.4 Percentiles and quartiles"}]
+  - id: h-d06
+    type: direct
+    question: "When should I use a one-sided rather than a two-sided hypothesis test?"
+    expected: [{book: godwin, pages: [112, 113], section: "10.6 Two-sided vs. one-sided hypothesis tests"}]
+
+  # paraphrase (8)
+  - id: h-p01
+    type: paraphrase
+    question: "A shop lowers the price of a dress for a sale. How do I work out the new price?"
+    expected: [{book: olivier, pages: [215, 222], section: "6.3 Markdown: Setting the Sale Price"}]
+  - id: h-p02
+    type: paraphrase
+    question: "How much will I receive if I change my dollars into another country's money?"
+    expected: [{book: olivier, pages: [259, 267], section: "7.3 Exchange Rates and Currency Exchange"}]
+  - id: h-p03
+    type: paraphrase
+    question: "If I need a certain amount of money in five years, how much should I put in the bank today?"
+    expected: [{book: olivier, pages: [374, 381], section: "9.3 Determining the Present Value"}]
+  - id: h-p04
+    type: paraphrase
+    question: "If a business pays its supplier's bill early, how much can it save?"
+    expected: [{book: olivier, pages: [268, 282], section: "7.4 Invoicing: Terms of Payment and Cash Discounts"}]
+  - id: h-p05
+    type: paraphrase
+    question: "How do I share a bonus fairly among workers based on how long each one worked?"
+    expected: [{book: olivier, pages: [111, 116], section: "3.3 Ratios, Proportions, and Prorating (prorating part)"}]
+  - id: h-p06
+    type: paraphrase
+    question: "When two things tend to rise together, how do I measure how strongly they are linked?"
+    expected: [{book: godwin, pages: [58, 60], section: "5.10 Correlation"}]
+  - id: h-p07
+    type: paraphrase
+    question: "Why can a survey of only the people who answer give misleading results?"
+    expected: [{book: godwin, pages: [24, 26], section: "3.3 Sampling bias (non-response)"}]
+  - id: h-p08
+    type: paraphrase
+    question: "How do I check whether my small sample's average differs from a claimed value when I don't know the population spread?"
+    expected: [{book: godwin, pages: [117, 119], section: "11.4 The t-test"}]
+
+  # absent (4)
+  # Checked 13 Oct: none of these terms occurs in either open book's extracted text.
+  - id: h-n01
+    type: absent
+    question: "How do I run an ANOVA to compare the means of three groups?"
+    expected: []
+  - id: h-n02
+    type: absent
+    question: "How do I calculate the economic order quantity for inventory?"
+    expected: []
+  - id: h-n03
+    type: absent
+    question: "What is logistic regression used for?"
+    expected: []
+  - id: h-n04
+    type: absent
+    question: "How do I calculate price elasticity of demand?"
+    expected: []
+
+  # spanning (2)
+  - id: h-s01
+    type: spanning
+    question: "What is the difference between a population and a sample?"
+    expected:
+      - {book: godwin, pages: [23, 24], section: "3.2 Populations and Samples"}
+      - {book: godwin, pages: [83, 85], section: "8.2 Population versus sample"}
+  - id: h-s02
+    type: spanning
+    question: "How do I compare investment options to decide which one is better?"
+    expected:
+      - {book: olivier, pages: [677, 689], section: "15.1 Net Present Value"}
+      - {book: olivier, pages: [690, 697], section: "15.2 Other Measures for Making Decisions"}

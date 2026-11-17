@@ -1,0 +1,56 @@
+# -
+# All settings for the AI tutor prototype live in this one file.
+# Change a value here; never hardcode it in the Python code.
+# -
+# Which study arm the app runs as:
+#   scaffolded   - adaptive tutor, hints only, never gives the final answer
+#   unrestricted - same model, neutral prompt, answers anything
+#   control      - no AI, "check answer" button only
+arm: scaffolded
+
+# Education level and subject. Level-specific content (skills, items,
+# prompt wording) is chosen by these files, not by the code.
+# This folder (higher_education/) is a separate copy of the senior
+# secondary tutor: its own data, search index (chroma/) and logs.
+level: higher_education
+subject: quantitative_methods   # Quantitative Methods and Business Mathematics
+
+# Shown as the page title in the app.
+app_title: Quantitative Methods Practice
+
+data:
+  skills_file: data/skills.yaml
+  items_file: data/items.csv
+  knowledge_dir: data/knowledge
+  prompts_file: data/prompts.yaml
+
+# The language model. BOTH AI arms use exactly these settings.
+llm:
+  provider: ollama              # anthropic (internet) or ollama (offline)
+  anthropic_model: claude-opus-5
+  effort: low                   # anthropic only: low / medium / high
+  ollama_model: llama3.2:3b     # any model you have pulled with Ollama
+  ollama_url: http://localhost:11434
+  ollama_temperature: 0.3
+  max_tokens: 2000
+
+# Retrieval of syllabus notes (RAG). Used by the scaffolded arm only.
+retrieval:
+  enabled: true                 # rebuild after editing notes: python -m tutor.retrieval build
+  embedding_model: all-MiniLM-L6-v2
+  db_dir: chroma
+  passages_per_reply: 3
+
+practice:
+  items_per_session: 6          # practice items before the session ends
+  max_leak_retries: 1           # scaffolded: re-ask the model if it leaks the answer
+
+# Participant codes must match this pattern (a regular expression).
+# "P" followed by 3-4 digits, e.g. P001. Stops real names being typed in.
+participant_code_pattern: "P[0-9]{3,4}"
+
+diagnostic:
+  items_per_skill: 2          # 6 skills x 2 = 12 questions
+
+logging:
+  db_file: logs/interactions.db

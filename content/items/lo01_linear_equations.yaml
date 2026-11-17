@@ -1,0 +1,183 @@
+# Learning outcome LO-01: formulate and solve linear equations from simple business problems.
+# STATUS: DRAFT, synthetic illustration written for the prototype. Not approved
+# University of The Gambia content. A lecturer must review before student use.
+#
+# Fields used by the code:
+#   answer_specification  -> deterministic verifier only (never sent to the LLM)
+#   scaffold_sequence     -> lecturer-approved hint text for levels 1-4
+#   checkpoints           -> intermediate values for level 5 (only restated if the student wrote them)
+#   worked_solution       -> used by the leak guard; never shown during the exercise
+#   analogous_example_id  -> level 6 worked example (a different problem)
+#   common_wrong_answers  -> typical wrong answers and the misconception they suggest
+#                            (used to recommend practice; recorded as POSSIBLE only)
+
+metadata:
+  schema_version: "0.2"
+  warning: "Synthetic draft content - not approved curriculum"
+
+items:
+  - item_id: LIN-001
+    item_version: "1.1"
+    course_id: QM-UG-DRAFT
+    outcome_id: LO-01
+    skill: Algebra
+    subskill: Linear equations
+    difficulty: Introductory
+    question_type: numeric_with_reasoning
+    stem: "A service charges a fixed fee of 40 dalasis plus 15 dalasis per unit. The total charge is 145 dalasis. How many units were used? Show how you represented the information."
+    answer_specification:
+      canonical_expression: "7"
+      acceptable_forms: ["7", "7.0", "u = 7"]
+      variable: u
+      units: units
+      unit_words: [units, unit]
+      rounding_rule: exact
+    misconception_ids: [MIS-002]
+    scaffold_sequence:
+      self_explanation: "What quantity is unknown, and which part of the charge is fixed and which part changes with the units?"
+      conceptual_cue: "A total charge like this is a fixed part plus a rate multiplied by the number of units."
+      strategic_hint: "Write one linear equation, using a letter for the number of units, that says the total equals the fixed part plus the variable part."
+      step_hint: "Once you have the equation, the first move is to remove the fixed fee from both sides."
+      analogous_example_id: LIN-ANA-001
+    checkpoints:
+      - label: "the amount paid for the units alone (total minus the fixed fee)"
+        value: "105"
+    common_wrong_answers:
+      - value: "185/15"
+        misconception_id: MIS-002
+        note: "Added the fixed fee instead of subtracting it: 15u = 145 + 40."
+    worked_solution:
+      - "Let u be the number of units."
+      - "40 + 15u = 145"
+      - "15u = 145 - 40 = 105"
+      - "u = 105 / 15 = 7"
+
+  - item_id: LIN-002
+    item_version: "1.1"
+    course_id: QM-UG-DRAFT
+    outcome_id: LO-01
+    skill: Algebra
+    subskill: Linear equations
+    difficulty: Introductory
+    question_type: numeric_with_reasoning
+    stem: "Solve 5x - 12 = 3x + 20. Explain each step you take."
+    answer_specification:
+      canonical_expression: "16"
+      acceptable_forms: ["16", "x = 16"]
+      variable: x
+      rounding_rule: exact
+    misconception_ids: [MIS-002]
+    scaffold_sequence:
+      self_explanation: "What do you want to end up with, and what is stopping x from being alone right now?"
+      conceptual_cue: "An equation stays balanced if you do the same operation to both sides."
+      strategic_hint: "Gather all the x terms on one side and all the plain numbers on the other."
+      step_hint: "Start by subtracting 3x from both sides. What does the equation look like then?"
+      analogous_example_id: LIN-ANA-002
+    checkpoints:
+      - label: "the collected x terms (2x equals this number)"
+        value: "32"
+    common_wrong_answers:
+      - value: "4"
+        misconception_id: MIS-002
+        note: "Changed the sign of a term on one side only, e.g. 5x + 3x = 20 + 12 or 5x - 3x = 20 - 12."
+    worked_solution:
+      - "5x - 3x = 20 + 12"
+      - "2x = 32"
+      - "x = 16"
+
+  - item_id: LIN-003
+    item_version: "1.1"
+    course_id: QM-UG-DRAFT
+    outcome_id: LO-01
+    skill: Algebra
+    subskill: Linear equations
+    difficulty: Introductory
+    question_type: numeric_with_reasoning
+    stem: "A taxi fare is a fixed 30 dalasis plus 12 dalasis per kilometre. A passenger paid 186 dalasis. How many kilometres was the trip?"
+    answer_specification:
+      canonical_expression: "13"
+      acceptable_forms: ["13", "k = 13"]
+      variable: k
+      units: km
+      unit_words: [km, kilometres, kilometers, kilometre]
+      rounding_rule: exact
+    misconception_ids: [MIS-002]
+    scaffold_sequence:
+      self_explanation: "Which part of the fare would the passenger pay even for a very short trip, and which part grows with distance?"
+      conceptual_cue: "Total fare = fixed charge + charge per kilometre x number of kilometres."
+      strategic_hint: "Use a letter for the kilometres and write an equation for the fare of 186 dalasis."
+      step_hint: "Take the fixed charge away from both sides first."
+      analogous_example_id: LIN-ANA-001
+    checkpoints:
+      - label: "the part of the fare that depends on distance"
+        value: "156"
+    common_wrong_answers:
+      - value: "18"
+        misconception_id: MIS-002
+        note: "Added the fixed charge instead of subtracting it: 12k = 186 + 30."
+    worked_solution:
+      - "30 + 12k = 186"
+      - "12k = 156"
+      - "k = 13"
+
+  # Transfer item: used in the independent check (no hints, no chat).
+  - item_id: LIN-004
+    item_version: "1.0"
+    course_id: QM-UG-DRAFT
+    outcome_id: LO-01
+    skill: Algebra
+    subskill: Break-even
+    difficulty: Intermediate
+    question_type: numeric_with_reasoning
+    stem: "A tailor sells shirts at 450 dalasis each. Fixed costs are 12,000 dalasis per month and the cost of making each shirt is 250 dalasis. How many shirts must be sold in a month to break even?"
+    answer_specification:
+      canonical_expression: "60"
+      acceptable_forms: ["60", "q = 60"]
+      variable: q
+      units: shirts
+      unit_words: [shirts, shirt]
+      rounding_rule: exact
+    misconception_ids: [MIS-002]
+    transfer_flag: true
+    worked_solution:
+      - "Revenue 450q equals cost 12000 + 250q"
+      - "200q = 12000"
+      - "q = 60"
+
+  # Analogous worked examples (level 6). Never assigned as active items.
+  - item_id: LIN-ANA-001
+    item_version: "1.0"
+    course_id: QM-UG-DRAFT
+    outcome_id: LO-01
+    skill: Algebra
+    subskill: Linear equations
+    difficulty: Introductory
+    question_type: worked_analogue
+    purpose: "Analogous worked example for LIN-001 and LIN-003"
+    must_not_be_assigned_as_active_pair: true
+    stem: "A delivery service charges a fixed fee of 25 dalasis plus 10 dalasis per parcel. A bill is 85 dalasis. Find the number of parcels."
+    worked_solution:
+      - "Let p represent the number of parcels."
+      - "Form the equation 25 + 10p = 85."
+      - "Subtract 25 from both sides to obtain 10p = 60."
+      - "Divide both sides by 10 to obtain p = 6."
+      - "Check: 25 + 10(6) = 85."
+    return_instruction: "Now go back to your question. What is the equation, and what is the first step that matches the one above?"
+
+  - item_id: LIN-ANA-002
+    item_version: "1.0"
+    course_id: QM-UG-DRAFT
+    outcome_id: LO-01
+    skill: Algebra
+    subskill: Linear equations
+    difficulty: Introductory
+    question_type: worked_analogue
+    purpose: "Analogous worked example for LIN-002"
+    must_not_be_assigned_as_active_pair: true
+    stem: "Solve 7y - 5 = 4y + 13."
+    worked_solution:
+      - "Subtract 4y from both sides: 3y - 5 = 13."
+      - "Add 5 to both sides: 3y = 18."
+      - "Divide both sides by 3: y = 6."
+      - "Check: 7(6) - 5 = 37 and 4(6) + 13 = 37."
+    return_instruction: "Now go back to your equation and do the first step in the same way."

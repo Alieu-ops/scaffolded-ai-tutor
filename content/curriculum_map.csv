@@ -1,0 +1,10 @@
+course_id,course_title,unit_id,unit_title,outcome_id,learning_outcome,prerequisite_outcome_ids,indicative_level,status,approved_by,approved_at,notes
+QM-UG-DRAFT,Undergraduate Quantitative Methods,U01,Equations and functions,LO-01,"Formulate and solve linear equations arising from simple business problems",,Introductory,Draft,,,"Illustrative only"
+QM-UG-DRAFT,Undergraduate Quantitative Methods,U01,Equations and functions,LO-02,"Interpret the slope and intercept of a linear function in context",LO-01,Introductory,Draft,,,"Illustrative only"
+QM-UG-DRAFT,Undergraduate Quantitative Methods,U02,Financial mathematics,LO-03,"Calculate and interpret simple and compound interest",LO-01,Introductory,Draft,,,"Illustrative only"
+QM-UG-DRAFT,Undergraduate Quantitative Methods,U02,Financial mathematics,LO-04,"Convert stated interest rates to the periodic rate required by a problem",LO-03,Intermediate,Draft,,,"Illustrative only"
+QM-UG-DRAFT,Undergraduate Quantitative Methods,U03,Calculus for business,LO-05,"Differentiate elementary functions and interpret marginal change",LO-02,Intermediate,Draft,,,"Illustrative only"
+QM-UG-DRAFT,Undergraduate Quantitative Methods,U04,Descriptive statistics,LO-06,"Calculate and interpret measures of centre and spread",,Introductory,Draft,,,"Illustrative only"
+QM-UG-DRAFT,Undergraduate Quantitative Methods,U05,Probability,LO-07,"Apply addition multiplication and complement rules to probability problems",,Intermediate,Draft,,,"Illustrative only"
+QM-UG-DRAFT,Undergraduate Quantitative Methods,U06,Inference and regression,LO-08,"State hypotheses and interpret a basic significance test",LO-06,Intermediate,Draft,,,"Illustrative only"
+QM-UG-DRAFT,Undergraduate Quantitative Methods,U06,Inference and regression,LO-09,"Interpret slope intercept and association in a simple regression",LO-02|LO-06,Intermediate,Draft,,,"Illustrative only"

@@ -1,0 +1,163 @@
+# RAG lab test set, version 0.1 (DRAFT, 13 Oct 2026)
+#
+# Drafted with an AI assistant from the two open books' tables of contents and page text; NOT yet reviewed.
+# I (as demo lecturer) still need to check each entry: is the question realistic, and do the pages
+# really contain the answer? Change status to "reviewed" once checked.
+#
+# Pages are PDF page numbers (1 = first page of the PDF file), as stored by src/extract.py,
+# NOT the page numbers printed in the book. A retrieved chunk is a HIT if it overlaps any
+# expected range. Questions contain no book text, so this file is safe to commit.
+#
+# type:
+#   direct      uses the book's own terms
+#   paraphrase  a student's everyday wording for the same idea
+#   absent      not covered by the indexed books: the right result is "nothing relevant"
+#   spanning    the answer appears in two places (any of them counts as a hit)
+#
+# Level 5 indexes only the two open books (olivier, godwin). Adding the copyrighted books
+# later is a separate experiment: do extra books help or add distracting noise?
+
+version: "0.1"
+status: draft
+books_indexed: [olivier, godwin]
+
+questions:
+  # direct (10)
+  - id: d01
+    type: direct
+    question: "What is the simple interest formula I = Prt?"
+    expected: [{book: olivier, pages: [289, 301], section: "8.1 Principal, Rate, Time"}]
+  - id: d02
+    type: direct
+    question: "How do you calculate the break-even point in units?"
+    expected: [{book: olivier, pages: [173, 180], section: "5.2 Break-Even Analysis"}]
+  - id: d03
+    type: direct
+    question: "What is the future value of an ordinary annuity?"
+    expected: [{book: olivier, pages: [474, 486], section: "11.2 Future Value of Annuities"}]
+  - id: d04
+    type: direct
+    question: "How is an amortization schedule constructed?"
+    expected: [{book: olivier, pages: [599, 608], section: "13.3 Amortization Schedules"}]
+  - id: d05
+    type: direct
+    question: "How do you calculate a percent change?"
+    expected: [{book: olivier, pages: [84, 92], section: "3.1 Percent Change"}]
+  - id: d06
+    type: direct
+    question: "What is the sample standard deviation?"
+    expected: [{book: godwin, pages: [55, 57], section: "5.7 Sample variance; 5.8 Sample standard deviation"}]
+  - id: d07
+    type: direct
+    question: "How do you interpret a p-value?"
+    expected: [{book: godwin, pages: [107, 109], section: "10.3 p-values; 10.4 Significance of a test"}]
+  - id: d08
+    type: direct
+    question: "What is the least-squares regression line?"
+    expected: [{book: godwin, pages: [120, 124], section: "12.1-12.4"}]
+  - id: d09
+    type: direct
+    question: "What does R-squared measure?"
+    expected: [{book: godwin, pages: [125, 126], section: "12.6 R-squared"}]
+  - id: d10
+    type: direct
+    question: "What is the central limit theorem?"
+    expected: [{book: godwin, pages: [89, 90], section: "8.4.1 The central limit theorem"}]
+
+  # paraphrase (10)
+  - id: p01
+    type: paraphrase
+    question: "If my bank keeps adding interest on top of interest, how much will my savings grow to?"
+    expected: [{book: olivier, pages: [352, 373], section: "9.1 Compound Interest Fundamentals; 9.2 Determining the Future Value"}]
+  - id: p02
+    type: paraphrase
+    question: "How many items does a shop need to sell before it stops losing money?"
+    expected: [{book: olivier, pages: [173, 180], section: "5.2 Break-Even Analysis"}]
+  - id: p03
+    type: paraphrase
+    question: "I save the same amount every month. How much will I have after five years?"
+    expected: [{book: olivier, pages: [474, 486], section: "11.2 Future Value of Annuities"}]
+  - id: p04
+    type: paraphrase
+    question: "When I repay a loan, how much of each payment goes to interest and how much reduces what I owe?"
+    expected: [{book: olivier, pages: [578, 589], section: "13.1 Calculating Interest and Principal Components"}]
+  - id: p05
+    type: paraphrase
+    question: "What selling price should a store set so it covers its costs and still makes a profit?"
+    expected: [{book: olivier, pages: [201, 214], section: "6.2 Markup: Setting the Regular Price"}]
+  - id: p06
+    type: paraphrase
+    question: "How spread out are the numbers in my data?"
+    expected: [{book: godwin, pages: [55, 57], section: "5.7 Sample variance; 5.8 Sample standard deviation"}]
+  - id: p07
+    type: paraphrase
+    question: "How sure can I be that the true average lies within a certain range?"
+    expected: [{book: godwin, pages: [98, 104], section: "9.5 Confidence intervals"}]
+  - id: p08
+    type: paraphrase
+    question: "How do I decide whether the evidence is strong enough to reject a claim?"
+    expected: [{book: godwin, pages: [105, 113], section: "10 Hypothesis testing"}]
+  - id: p09
+    type: paraphrase
+    question: "How can I predict sales from advertising spending with a straight line?"
+    expected: [{book: godwin, pages: [120, 129], section: "12.1-12.4; 12.8 example"}]
+  - id: p10
+    type: paraphrase
+    question: "For incomes where a few people earn a lot, is the middle value or the average more useful?"
+    expected: [{book: godwin, pages: [50, 51], section: "5.2 Sample median; 5.3 Comparing mean and median"}]
+
+  # absent (5)
+  # Checked 13 Oct: the key terms do not occur in the extracted text of either open book.
+  - id: n01
+    type: absent
+    question: "How do I perform a chi-square test of independence?"
+    expected: []
+  - id: n02
+    type: absent
+    question: "What is Machine Learning?"
+    expected: []
+  - id: n03
+    type: absent
+    question: "How do I use derivatives to find marginal cost?"
+    expected: []
+  - id: n04
+    type: absent
+    question: "How do I calculate the Gini coefficient for income inequality?"
+    expected: []
+  - id: n05
+    type: absent
+    question: "When should I use a Bayesian rule?"
+    expected: []
+
+  # spanning (5)
+  - id: s01
+    type: spanning
+    question: "How do I calculate an average?"
+    expected:
+      - {book: olivier, pages: [93, 103], section: "3.2 Averages"}
+      - {book: godwin, pages: [49, 51], section: "5.1 Sample mean"}
+  - id: s02
+    type: spanning
+    question: "How are logarithms used?"
+    expected:
+      - {book: olivier, pages: [75, 77], section: "2.6 Natural Logarithms"}
+      - {book: godwin, pages: [42, 43], section: "4.6.1 Logarithms in time plots"}
+  - id: s03
+    type: spanning
+    question: "How does inflation affect purchasing power, and what is a price index?"
+    expected:
+      - {book: olivier, pages: [142, 150], section: "4.3 Indexes"}
+      - {book: olivier, pages: [452, 460], section: "10.5 Inflation, Purchasing Power, and Rates of Change"}
+  - id: s04
+    type: spanning
+    question: "What is the normal distribution, and why does the sample mean follow it?"
+    expected:
+      - {book: godwin, pages: [62, 65], section: "6.4 The Normal distribution"}
+      - {book: godwin, pages: [89, 90], section: "8.4.1 The central limit theorem"}
+  - id: s05
+    type: spanning
+    question: "What is a residual?"
+    note: "Ambiguous on purpose: regression residual (Godwin) vs residual value of a lease (Olivier). Shows how word search handles one word with two meanings."
+    expected:
+      - {book: godwin, pages: [124, 125], section: "12.5 Predicted values and residuals"}
+      - {book: olivier, pages: [550, 556], section: "12.4 Leases (residual value)"}

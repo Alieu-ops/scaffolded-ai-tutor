@@ -1,0 +1,35 @@
+# Settings for qmtutor (version 2: streamlit_app.py). The v1 app keeps using config.yaml.
+# Treatment condition, policy version and roles are NOT set here or by the client:
+# they come from the database (study_assignment, scaffold_policy_version, user_account).
+
+app_title: Quantitative Methods Tutor (prototype)
+database: data_v2/qmtutor.db           # synthetic data only; git-ignored
+content_dir: content
+policy_file: policies/scaffold_policy_v1.yaml
+consent_notice_version: "NOTICE-DEMO-1"   # placeholder; real notice needs ethics approval
+
+llm:
+  provider: ollama            # ollama | anthropic | fake
+  ollama_model: llama3.2:3b
+  ollama_url: http://localhost:11434
+  temperature: 0.2
+  timeout_seconds: 120
+  anthropic_model: claude-opus-5-5   # only used if provider: anthropic (not live-tested)
+
+retrieval:
+  backend: lexical            # lexical (SQLite FTS5) | embedding (Sentence Transformers)
+  passages_per_reply: 2
+  embedding_model: all-MiniLM-L6-v2
+
+features:
+  assess_reasoning_with_llm: true    # provisional rubric scores, shown to lecturers only
+  max_leak_retries: 1                # regenerate a leaking reply once, then use approved text
+  chat_history_turns: 6              # recent messages sent to the model
+  # Owner decision (3 Oct 2026): students see the computer's check of their workings after
+  # submitting. It is deterministic feedback (not AI), shown the same way in all three arms,
+  # like answer checking. Before an exercise is finished students see only arithmetic checks;
+  # checks that use the answer appear after finishing (see mathcheck/step_check.py).
+  show_step_check_to_students: true
+  # Adaptive practice (recommendations based on each student's weaknesses) is part of the tutor
+  # intervention, so by default only the scaffolded group gets it. The other groups see a fixed order.
+  adaptive_practice_arms: [scaffolded]

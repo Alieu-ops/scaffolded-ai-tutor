@@ -1,0 +1,36 @@
+requirement_id,requirement,status,implementation_location,test_evidence,notes
+REQ-001,"Study explanations grounded in approved curriculum content",Tested (fake + live model),"services/study_service.py; retrieval/search.py; prompts study","test_study_mode_locked_during_active_exercise; test_live_ollama::test_study_mode_cites_only_provided_notes","Only approved notes are indexed; cited sources restricted to provided notes"
+REQ-002,"Protect active exercise from answer/full-solution disclosure",Tested (fake + live model),"llm/prompts.py (no answer in context); llm/leak_guard.py; ExerciseService._guarded_generation","test_prompt_never_contains_answer_or_hidden_steps; test_leaky_model_reply_is_blocked_and_replaced; test_live_ollama::test_no_leak_reaches_student...","Cannot stop outside AI use"
+REQ-003,"Prevent study mode during active exercise",Tested,"StudyService.ask; DB partial unique index one_active_exercise","test_study_mode_locked_during_active_exercise; test_study_page_locked_during_exercise","Saved-exercise copy into study also refused (heuristic overlap)"
+REQ-004,"Capture final answer and reasoning separately",Tested,"attempt table; app_pages/exercise.py","test_correct_answer_with_weak_reasoning_kept_separate",
+REQ-005,"Equations powers roots logs fractions units rounding",Partly tested,"mathcheck/safe_parser.py","test_math_verification.py","Multi-part answers and unit conversion planned"
+REQ-006,"Deterministic/symbolic maths checks",Tested,"mathcheck/verifier.py","test_math_verification.py","No eval/sympify on student input"
+REQ-007,"Scaffold levels 0-7",Tested,"domain/scaffold_policy.py; ExerciseService","test_domain_rules.py; test_full_ladder_to_analogue_then_return",
+REQ-008,"Analogous worked example only after persistent struggle",Tested,"next_hint_level; ExerciseService._analogue_text; importer leak check","test_analogue_only_after_persistent_struggle; test_validation_catches_analogue_that_leaks_the_answer","Thresholds need owner/lecturer review"
+REQ-009,"Proactive hints visible, off by default",Tested,"user_preference; student_home.py","test_proactive_hints_off_by_default_then_on",
+REQ-010,"Save resume terminate without answer reveal",Tested,"domain/exercise_state.py; ExerciseService","test_save_resume_terminate_never_reveals_answer; test_save_then_resume",
+REQ-011,"Versioned human-controlled scaffold policy",Tested,"scaffold_policy_version; LecturerService.decide_policy","test_llm_policy_suggestion_cannot_self_activate","LLM-generated proposals not built; manual entry with source flag"
+REQ-012,"Lecturers author review approve publish retire items",Partly tested,"content/importer.py; LecturerService.decide_item; lecturer_content.py","test_storage_and_content.py","Authoring is via YAML files, not an in-app editor"
+REQ-013,"Lecturers create formative assignments",Planned,,,"Students choose from approved items"
+REQ-014,"Lecturer evidence and class patterns",Partly tested,"LecturerService.class_patterns/referrals/student_evidence_review","test_class_patterns_are_aggregated; test_lecturer_pages_render","Misconception patterns not yet aggregated"
+REQ-015,"Students view and challenge profile evidence",Tested,"profile_service.py; progress.py; LecturerService.resolve_challenge","test_challenge_and_removal_keeps_history; test_progress_page_and_challenge",
+REQ-016,"Per-concept competence, supported vs independent",Tested,"domain/evidence.py","test_supported_success_is_not_reported_as_independent","Label thresholds are a proposal"
+REQ-017,"Track reasoning answer transfer retention hints misconceptions uncertainty provenance",Partly tested,"competence_evidence; assessment_result","test_domain_rules evidence tests","Retention via researcher-entered results; misconception evidence table unused"
+REQ-018,"Separate known misconceptions from validated candidates",Planned,"misconception_evidence table (schema only)",,
+REQ-019,"Compare LLM lecturer symbolic judgements",Partly implemented,"reasoning_assessment (llm_provisional); student_evidence_review","test_correct_answer_with_weak_reasoning_kept_separate","Lecturer scoring UI and agreement statistics planned"
+REQ-020,"Operational identity separate from research data",Tested,"research_participant_link; ResearchService.export","test_export_is_pseudonymised_and_excludes_raw_text",
+REQ-021,"Minimum data and retention controls",Partly implemented,"event payloads minimal; export excludes raw text","test_export_is_pseudonymised_and_excludes_raw_text","Retention periods and deletion not implemented; need ethics decision"
+REQ-022,"Three evaluation conditions",Tested,"study_assignment; arm logic in services","test_unrestricted_arm_uses_same_model_without_policy; test_existing_support_arm_has_no_ai; test_block_randomisation_is_balanced_and_recorded",
+REQ-023,"No-AI transfer and delayed retention",Partly tested,"independent_check.py (transfer); assessment_result","test_transfer_check_has_no_hints_or_chat","Delayed scheduling is a field only"
+REQ-024,"Ollama behind provider-neutral interface",Tested (live),"llm/providers.py","test_live_ollama.py",
+REQ-025,"Structured validated LLM outputs with safe fallback",Tested,"llm/schemas.py; generate_with_retry","test_malformed_output_is_retried_once_then_safe; test_provider_down_falls_back_to_approved_text",
+REQ-026,"Streamlit first web prototype, current multipage APIs",Tested (AppTest),"streamlit_app.py; app_pages/","test_app_ui.py","Not tested on phones/browsers"
+REQ-027,"SQLite with migrations and repositories",Tested,"storage/","test_migrations_apply_once_and_are_idempotent; test_transaction_rolls_back_on_error",
+REQ-028,"Campus-server route without phone-local AI claims",Planned,,,"Docker Compose not written (owner decision 3 Oct 2026)"
+REQ-029,"Cached offline exercises + delayed sync (PWA)",Deferred,"idempotency_key in event table",,
+REQ-030,"Framework rationale, alternatives, limitations, evidence",Implemented,"docs/build/BUILD_WALKTHROUGH.md; framework_register_v2.csv",,
+REQ-031,"Code clearly labelled and educational",Implemented,"module docstrings across qmtutor/",,"Owner review pending"
+REQ-032,"Preserve parent v1 and user changes",Tested,"separate branch v2-build-package; tutor/ and app.py untouched","v1 tests still pass (28)",
+REQ-033,"Report implemented/tested/planned separately",Implemented,"this file; README_v2.md",,
+REQ-034,"Do not claim prevention of outside AI use",Implemented,"study_service docstring; README_v2.md",,
+REQ-035,"Human judgement for consequential decisions",Tested,"LecturerService (content, challenges, policy)","test_review_needs_reason_and_lecturer_role; test_llm_policy_suggestion_cannot_self_activate",

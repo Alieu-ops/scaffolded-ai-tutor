@@ -1,0 +1,16 @@
+[browser]
+# Do not send usage statistics to Streamlit (participant privacy).
+gatherUsageStats = false
+
+[client]
+# Hide developer menus from participants.
+toolbarMode = "minimal"
+
+[server]
+# Streamlit normally watches all loaded code for changes so it can reload.
+# With the AI libraries loaded this makes start-up extremely slow, so it is
+# turned off. After editing code, stop the app (Ctrl+C) and start it again.
+fileWatcherType = "none"
+
+[theme]
+base = "light"

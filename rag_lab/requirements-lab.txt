@@ -1,0 +1,10 @@
+# Extra packages for the RAG lab only (the tutor does not need them).
+# Install into the app's environment:  .\.venv\Scripts\python.exe -m pip install -r rag_lab\requirements-lab.txt
+pypdf==6.19.0          # main PDF text extractor; BSD licence, pure Python
+fonttools              # lets pypdf decode some embedded fonts (MIT licence); removed pypdf's font warnings
+pymupdf                # fallback extractor for pages pypdf cannot read (13 Oct: 139 Anderson pages fail in
+                       # pypdf with "More than one /FontFile"). AGPL licence: fine for this offline lab,
+                       # not to be added to the deployed tutor without a licence review.
+# Needed from Level 4d (semantic chunking) and Level 3 (meaning search, re-ranking). Large: it
+# installs PyTorch (often 1-2 GB). Install separately when ready:
+#   .\.venv\Scripts\python.exe -m pip install sentence-transformers

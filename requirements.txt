@@ -1,0 +1,9 @@
+# Python packages the project needs. Install with: pip install -r requirements.txt
+pandas                  # tables (items, logs)
+pyyaml                  # reads config.yaml and data/*.yaml
+pytest                  # automated tests
+anthropic               # Claude API (Module 4)
+requests                # talks to Ollama (Module 4, offline option)
+sentence-transformers   # turns text into embeddings (Module 3)
+chromadb                # stores and searches embeddings (Module 3)
+streamlit               # web interface (Module 6)

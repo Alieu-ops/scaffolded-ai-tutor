@@ -1,0 +1,7 @@
+.
+LIVE SUMMARY (ollama:llama3.2:3b): 24 replies shown; response types {'tutor_reply_level_1': 16, 'refusal': 6, 'fallback_leak_blocked': 2}; model leak attempts blocked: 4 ['intermediate_value']; provider failures: 0
+.
+STUDY ANSWER (study_explanation): Compound interest grows faster than simple interest because it adds interest to the principal amount, which then earns interest itself. In simple interest, interest is only added to the principal amount, not to the interest that has already been added. This means that compound interest has a compounding effect, where the interest earned in each period is added to the principal, resulting in faster
+SOURCES: ['interest#compound-interest', 'interest#simple-interest', 'interest#present-value-and-discounting']
+.
+3 passed in 201.01s (0:03:21)

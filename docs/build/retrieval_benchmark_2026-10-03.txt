@@ -1,0 +1,5 @@
+Corpus: 7 approved passages
+lexical    hit@1 8/12 (67%)   hit@3 12/12 (100%)   0.1 ms/query
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights:  68%|######7   | 70/103 [00:00<00:00, 699.86it/s]Loading weights: 100%|##########| 103/103 [00:00<00:00, 842.13it/s]
+(embedding model loaded in 59.8 s)
+embedding  hit@1 12/12 (100%)   hit@3 12/12 (100%)   22.0 ms/query
