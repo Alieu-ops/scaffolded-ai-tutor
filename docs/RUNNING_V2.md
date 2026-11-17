@@ -24,7 +24,7 @@ Then sign in with a demo account:
 |---|---|
 | S001 | scaffolded tutor (hints, never the answer) |
 | S002 | unrestricted AI (same model, no policy) |
-| S003 | existing support (no AI) |
+| S003 | existing support (no AI): kept from an earlier design, not in the planned study |
 | L001 | lecturer: dashboard, content review, policy |
 | R001 | researcher: assignment, assessments, export |
 | A001 | administrator: system health |
