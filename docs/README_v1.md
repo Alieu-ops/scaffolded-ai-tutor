@@ -1,7 +1,7 @@
 # AI tutor prototype: higher education (Quantitative Methods and Business Mathematics)
 
-A research instrument for a three-arm study (the design at the time; the current plan has two arms, see the main README) (scaffolded AI tutor / unrestricted AI
-assistant / no-AI control) with higher-education students in The Gambia. It is a
+The first, simpler version of the tutor, for higher-education students in The Gambia.
+It had three modes (scaffolded AI tutor / unrestricted AI assistant / no AI). It is a
 separate copy of the senior secondary version (repo `ai-tutor`), with its own content,
 settings, logs and search index. **Prototype only: not evaluated.**
 

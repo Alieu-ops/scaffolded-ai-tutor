@@ -1,12 +1,13 @@
-# Scaffolded AI tutor for Quantitative Methods (research prototype)
+# Scaffolded AI tutor for Quantitative Methods (exploratory prototype)
 
 An AI tutor for first-year Quantitative Methods and Business Mathematics
-students in The Gambia. It is built as a **research instrument, not a
-product**: the plan is a two-arm study comparing a scaffolded AI tutor with
-an unrestricted AI assistant (same model, no tutoring rules).
+students in The Gambia. I built it to find out whether a tutor can help
+students reason through a problem instead of doing it for them, and to learn
+how language models and retrieval work together. It is an exploration, not a
+product.
 
-**Status: local prototype with synthetic data. Not evaluated, not
-pilot-ready.** No real student data will be used before ethics and
+**Status: local prototype with synthetic data. Not evaluated and not used
+with students.** No real student data would be used without ethics and
 institutional approval.
 
 ## Why I built it
@@ -15,13 +16,14 @@ As an undergraduate I tutored fellow students in economics and mathematics
 because there were not enough tutors. AI tutors could help with that
 shortage, but a chatbot that hands out answers lets students skip the
 thinking. I wanted to see whether a tutor can be designed to help students
-reason through a problem instead of doing it for them, and how that could be
-studied.
+reason through a problem instead of doing it for them. While building it, I
+realised that every message a student sends records how they use the AI, so a
+tutor could also show how students work with AI.
 
 ## How it was built
 
-I designed how the tutor should behave: the scaffolding levels, the rules,
-what the lecturer controls and the research design. The code was written with
+I designed how the tutor should behave: the scaffolding levels, the rules
+and what the lecturer controls. The code was written with
 an AI coding assistant, and I tested it, ran it and decided on every change.
 The design decisions are recorded in `docs/DESIGN_DECISIONS.md`. The course
 notes, practice items and retrieval test questions are drafts written with AI
@@ -41,11 +43,11 @@ assistance that I am still reviewing.
   file that the lecturer approves.
 - **The lecturer stays in the loop.** Lecturers review content, approve the
   scaffolding policy and see a dashboard of where students struggle.
-- **Same model in both arms.** The scaffolded and unrestricted arms use the
-  same model and settings; only the tutoring rules differ, so a difference
-  between the arms comes from the rules and not from the model.
-- **Privacy by design.** Participant codes only, research exports with
-  research IDs and no raw text, and logs never committed.
+- **A comparison mode.** An unrestricted AI assistant uses the same model
+  and settings without the tutoring rules, so the effect of the rules can be
+  seen side by side.
+- **Privacy by design.** Demo codes only, exports with anonymous IDs and no
+  raw text, and logs never committed.
 - **Runs offline** on a 16 GB laptop with no GPU, using a local model through
   Ollama, because internet access is not reliable for many students.
 
@@ -78,12 +80,9 @@ Tests: `pytest tests/v2` (offline). The live tests need Ollama running.
 
 ## Limits (honest list)
 
-- Earlier versions also had a third, no-AI arm (students working by hand
-  with their usual support). I dropped it from the study design: work done by
-  hand cannot be recorded in the tutor, so there would be no comparable
-  evidence. The code still contains that option (demo account S003), but it
-  is not part of the planned study.
-
+- The code still contains a no-AI option from an earlier version (demo
+  account S003). It is not used: work done by hand cannot be recorded in the
+  tutor.
 - The small local model sometimes gives generic or slightly wrong feedback.
 - Demo accounts only; no real sign-in yet.
 - Multi-part answers and unit conversion are not handled yet.
